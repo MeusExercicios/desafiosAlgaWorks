@@ -8,7 +8,4 @@ public class Funcionario {
         return quantidade_de_filhos > 0;
     }
 
-    String informarFuncionario(String nome, int quantidade_de_filhos) {
-        return "Nome: " + nome + " \nQuantida de filhos: " + quantidade_de_filhos;
-    }
 }

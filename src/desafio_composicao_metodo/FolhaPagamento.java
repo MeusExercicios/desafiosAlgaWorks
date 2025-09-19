@@ -2,7 +2,10 @@ package desafio_composicao_metodo;
 
 public class FolhaPagamento {
 
-    double calcularSalario(ContratoTrabalho contratoTrabalho) {
+    Holerite holerite;
+
+
+    Holerite calcularSalario(ContratoTrabalho contratoTrabalho) {
         return (contratoTrabalho.valorHoraNormal * contratoTrabalho.registro.quantidadeHorasNormaisTrabalhadas) +
                 (contratoTrabalho.valorHoraExtra * contratoTrabalho.registro.quantidadeHorasExtras);
     }

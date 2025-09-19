@@ -9,5 +9,7 @@ public class ContratoTrabalho {
     double valorHoraNormal;
     double valorHoraExtra;
 
+    double calcularAdicional()
+
 
 }
