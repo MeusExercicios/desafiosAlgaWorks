@@ -2,16 +2,13 @@ package desafio_composicao_metodo;
 
 public class FolhaPagamento {
 
-    ContratoTrabalho contratoTrabalho = new ContratoTrabalho();
-    Registro registro = new Registro();
-
     double calcularSalario(ContratoTrabalho contratoTrabalho) {
-        return (contratoTrabalho.valorHoraNormal * registro.quantidadeHorasNormaisTrabalhadas) +
-                (contratoTrabalho.valorHoraExtra * registro.quantidadeHorasExtras);
+        return (contratoTrabalho.valorHoraNormal * contratoTrabalho.registro.quantidadeHorasNormaisTrabalhadas) +
+                (contratoTrabalho.valorHoraExtra * contratoTrabalho.registro.quantidadeHorasExtras);
     }
 
     double calcularSalarioAcrescimo(ContratoTrabalho contratoTrabalho) {
-        return ((contratoTrabalho.valorHoraNormal * registro.quantidadeHorasNormaisTrabalhadas) +
-                (contratoTrabalho.valorHoraExtra * registro.quantidadeHorasExtras)) * 1.1;
+        return ((contratoTrabalho.valorHoraNormal * contratoTrabalho.registro.quantidadeHorasNormaisTrabalhadas) +
+                (contratoTrabalho.valorHoraExtra * contratoTrabalho.registro.quantidadeHorasExtras)) * 1.1;
     }
 }
