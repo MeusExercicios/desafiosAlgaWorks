@@ -1,25 +1,27 @@
 package DesafioVarargs;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Principal {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        double
-
         System.out.println("Digite a quantidade de valores que quer cadastrar: ");
         int quantidade = scanner.nextInt();
 
-        System.out.println("Digite as notas: ");
+        double[] novosValores = new double[quantidade];
 
         for (int i = 0; i < quantidade; i++) {
             System.out.println("Digite a nota " + (i + 1));
-            valores.add(scanner.nextDouble());
+            novosValores[i] = scanner.nextDouble();
         }
 
-        Media.calcularMedia(quantidade,valores);
+        double resultado = Media.calcularMedia(novosValores);
 
+        if (resultado == 0) {
+            System.out.println("Você não digitou pelo menos 2 números");
+        } else {
+            System.out.println(resultado);
+        }
     }
 }
