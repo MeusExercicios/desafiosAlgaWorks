@@ -1,10 +1,10 @@
 package desafio_construtores;
 
 public class Participante {
-    String nome;
-    int saldoDePontos;
+    private String nome;
+    private int saldoDePontos;
 
-    Participante(String nome){
+    public Participante(String nome){
         this.nome = nome;
     }
 
@@ -19,5 +19,10 @@ public class Participante {
                 "nome='" + nome + '\'' +
                 ", saldoDePontos=" + saldoDePontos +
                 '}';
+    }
+
+
+    public void creditarPontos(int pontos){
+        this.saldoDePontos += pontos;
     }
 }
