@@ -7,13 +7,16 @@ public class ContaPagar {
     private boolean pago;
     Fornecedor fornecedor;
 
-
     public String getDescricao() {
         return descricao;
     }
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public double getAuxValor() {
+        return valor;
     }
 
     public double getValor() {
@@ -50,6 +53,10 @@ public class ContaPagar {
         } else {
             setValor(getValor() - getValor());
         }
+    }
+
+    public void cancelarPagamento(double valor) {
+        setValor(valor);
     }
 
     public void cancelarPagamento() {

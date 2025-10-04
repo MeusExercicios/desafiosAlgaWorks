@@ -11,14 +11,14 @@ public class Principal {
         contaAluguel.setDataVencimento("10/07/2022");
         contaAluguel.setFornecedor(imobiliaria);
         imprimirConta(contaAluguel);
-
+        double auxValor = contaAluguel.getAuxValor();
         contaAluguel.pagar();
         imprimirConta(contaAluguel);
 
         // Pagar a mesma conta novamente deve ser impedido
-        //contaAluguel.pagar();
+        contaAluguel.pagar();
 
-        contaAluguel.cancelarPagamento();
+        contaAluguel.cancelarPagamento(auxValor);
         imprimirConta(contaAluguel);
 
         // Cancelar o pagamento de uma conta pendente deve ser impedido
