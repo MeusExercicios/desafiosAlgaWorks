@@ -24,17 +24,17 @@ public class Main {
         System.out.println("O funcionário é programador ? (1-sim/0-não): ");
         int funcao = scanner.nextInt();
 
-        Funcionario funcionario = new Funcionario(nome, valorHoraTrabalhada);
 
         if (funcao == 0) {
-            System.out.println(funcionario.gerarHolerite(horasTrabalhadas, mesAno));
+            Funcionario funcionario = new Funcionario(nome, valorHoraTrabalhada);
+            Holerite holerite = funcionario.gerarHolerite(horasTrabalhadas, mesAno);
+            holerite.imprimir();
         } else {
             System.out.println("Digite o valor do bônus: ");
             double valorBonus = scanner.nextDouble();
             Programador programador = new Programador(nome, valorHoraTrabalhada, valorBonus);
-            System.out.println(programador.calcularSalario(horasTrabalhadas));
-
-            System.out.println();
+            Holerite holerite = programador.gerarHolerite(horasTrabalhadas, mesAno);
+            holerite.imprimir();
         }
 
 
