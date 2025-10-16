@@ -20,6 +20,6 @@ public abstract class PessoaJuridica extends Pessoa {
     }
 
     public double getLucroAnual() {
-        return despesaAnual * 0.1;
+        return getFaturamentoAnual() - getDespesaAnual();
     }
 }

@@ -19,8 +19,8 @@ public class PessoaFisica extends Pessoa {
 
     @Override
     public double calcularImposto() {
-        if (getReceitaAnual() <= RECEITA_ANUAL_ISENCAO){
-           return 0;
+        if (getReceitaAnual() <= RECEITA_ANUAL_ISENCAO) {
+            return 0;
         } else {
             return receitaAnual * ALIQUOTA_IMPOSTO_RENDA;
         }
