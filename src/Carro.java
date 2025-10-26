@@ -3,21 +3,30 @@ import java.util.Objects;
 public class Carro {
     private final String marca;
     private final String placa;
+    private StatusCarro status;
 
-
-    public Carro(String marca, String placa) {
-        Objects.requireNonNull(marca);
-        Objects.requireNonNull(placa);
+    public Carro(String marca, String placa, StatusCarro status) {
         this.marca = marca;
         this.placa = placa;
+        this.status = status;
     }
 
     public String getMarca() {
         return marca;
     }
 
+
     public String getPlaca() {
         return placa;
+    }
+
+
+    public StatusCarro getStatus() {
+        return status;
+    }
+
+    public void setStatus(StatusCarro status) {
+        this.status = status;
     }
 
     @Override
@@ -37,6 +46,8 @@ public class Carro {
         return "Carro{" +
                 "marca='" + marca + '\'' +
                 ", placa='" + placa + '\'' +
+                ", status=" + status.getNomes() +
                 '}';
     }
 }
+
