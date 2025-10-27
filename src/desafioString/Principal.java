@@ -12,7 +12,6 @@ public class Principal {
 //        };
 
 
-
 //        String[] emailsInvalidos = { "", " joao@algaworks.com", "joao@algaworks.com ",
 //                "joao @algaworks.com", "joao@ algaworks.com", "joao@algaworks .com",
 //                "joao@algaworks. com", "joaoalgaworks.com", "@algaworks.com",
@@ -22,24 +21,41 @@ public class Principal {
 //                "jo#ao@algaworks.com", "joao@alga#works.com"
 //        };
 
+        //Caso 1: ""
+        /*
+        boolean emailVazio = email.isBlank();
+
+        if (emailVazio) {
+            System.out.println("email vazio");
+        } else {
+            System.out.println("Emails true");
+        }
+         */
+
+        //Caso 2: " joao@algaworks.com"
+        /*
         String email = " joao@algaworks.com";
 
-        String modelo = email.strip();
-
-        if (modelo.equals(email)) {
-            System.out.println("emails iguais");
+        if (email.contains(" ")){
+            System.out.println("O email tem espaço em branco");
         } else {
-            System.out.println("Emails diferentes");
+            System.out.println("O email não tem espaço em branco");
         }
+    }
+         */
 
-
-
-        //false
+        //Caso 3: "@algaworks.com"
         /*
 
-        1 - se tiver vazio
-        2 - se tiver espaço vazio
-         */
+        String email = "@algaworks.com";
+
+        if (email.charAt(0) == '@'){
+            System.out.println("email não tem nome antes do @");
+        } else {
+            System.out.println("email correto");
+        }
+
+        */
 
 
 //        for (String email : emailsValidos) {
@@ -58,5 +74,6 @@ public class Principal {
 
 //        System.out.println("Sucesso! Validador funcionando corretamente.");
     }
-
 }
+
+
