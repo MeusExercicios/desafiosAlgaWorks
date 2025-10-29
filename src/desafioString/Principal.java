@@ -58,6 +58,31 @@ public class Principal {
         */
 
 
+        //Caso 4: "joao@algaworks"
+
+        String email = "joao@algaworks";
+
+        //algaworks
+
+        String [] emailArray = email.split("@");
+
+        String depois = emailArray[1];
+
+        boolean pontuacao = depois.contains(".");
+
+        int quantidade = 0;
+
+        for (int i = 0; i < emailArray.length; i++) {
+            if (depois.charAt(i)) == '.'{
+                quantidade++;
+            }
+        }
+
+        if (!pontuacao) {
+            System.out.println("Não tem ponto");
+        }
+
+
 //        for (String email : emailsValidos) {
 //            if (!ValidadorEmail.validar(email)) {
 //                throw new RuntimeException(
