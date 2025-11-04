@@ -4,41 +4,76 @@ public class ValidadorEmail {
 
     public static boolean validar(String email) {
 
-        /*
-        SITUAÇÃO 1:
+        boolean emailNuloOuVazio = (email == null) || email.isBlank();
+        if (emailNuloOuVazio) return false;
 
+        boolean temEspacoNoComecoOuFim = !email.equals(email.strip());
+        if (temEspacoNoComecoOuFim) return false;
 
-        String email = "  @algaworks.com";
+        boolean temEspacoNoMeio = email.contains(" ");
+        if (temEspacoNoMeio) return false;
 
-        int indice = email.strip().indexOf("@");
+        int qtdArroba = email.length() - email.replace("@", "").length();
+        boolean quantidadeArrobaValida = (qtdArroba == 1);
+        if (!quantidadeArrobaValida) return false;
 
-        if (indice != 0 && indice != -1){
+        boolean comecaComArroba = email.charAt(0) == '@';
+        if (comecaComArroba) return false;
 
-        System.out.println("O email está válido " + email);
+        String[] partes = email.split("@");
+        String usuario = partes[0];
+        String dominio = partes[1];
 
-        } else {
+        boolean usuarioVazio = usuario.isEmpty();
+        if (usuarioVazio) return false;
 
-        System.out.println("Email inválido. @ colocado de forma errada" + email);
+        boolean dominioVazio = dominio.isEmpty();
+        if (dominioVazio) return false;
 
+        boolean dominioTemPonto = dominio.contains(".");
+        if (!dominioTemPonto) return false;
+
+        boolean dominioTerminaComPonto = dominio.endsWith(".");
+        if (dominioTerminaComPonto) return false;
+
+        boolean dominioComecaComPonto = dominio.charAt(0) == '.';
+        if (dominioComecaComPonto) return false;
+
+        boolean dominioMinusculo = dominio.equals(dominio.toLowerCase());
+        if (!dominioMinusculo) return false;
+
+        int posUltimoPonto = dominio.lastIndexOf(".");
+        String tld = dominio.substring(posUltimoPonto + 1);
+
+        boolean tldTamanhoValido = tld.length() >= 2 && tld.length() <= 4;
+        if (!tldTamanhoValido) return false;
+
+        boolean tldSomenteLetras = true;
+        for (int i = 0; i < tld.length(); i++) {
+            char c = tld.charAt(i);
+            if (!(c >= 'a' && c <= 'z')) {
+                tldSomenteLetras = false;
+                break;
+            }
         }
+        if (!tldSomenteLetras) return false;
 
-         */
+        boolean caracteresValidos = true;
+        for (int i = 0; i < email.length(); i++) {
+            char c = email.charAt(i);
 
-        /*
-        String email = "";
+            boolean letraMinuscula = c >= 'a' && c <= 'z';
+            boolean letraMaiuscula = c >= 'A' && c <= 'Z';
+            boolean numero = c >= '0' && c <= '9';
+            boolean simboloValido = c == '.' || c == '_' || c == '-' || c == '@';
 
-        if (email.isBlank()){
-
-        System.out.println("O email está vazio");
-
+            if (!(letraMinuscula || letraMaiuscula || numero || simboloValido)) {
+                caracteresValidos = false;
+                break;
+            }
         }
-         */
+        if (!caracteresValidos) return false;
 
-        String emailValidador = email;
-
-        emailValidador.isBlank();
-
-        return false;
+        return true;
     }
-
 }
