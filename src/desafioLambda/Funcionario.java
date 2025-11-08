@@ -55,6 +55,6 @@ public class Funcionario implements Comparable<Funcionario> {
 
     @Override
     public int compareTo(Funcionario o) {
-        return BigDecimal;
+        return this.getSalario().compareTo(o.getSalario());
     }
 }

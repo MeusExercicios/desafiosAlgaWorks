@@ -2,6 +2,7 @@ package desafioLambda;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 
 public class Principal {
@@ -25,16 +26,25 @@ public class Principal {
                 System.out.println("Funcionário ativo: " + funcionario.getNome());
             }
         }
-    }
-}
-
-
         // TODO ordenar funcionários pelo valor do salário
 
+        Collections.sort(funcionarios);
+
+
         // TODO iterar e imprimir funcionários usando o método estático imprimir
+        funcionarios.forEach(Principal::imprimir);
 
 
-//    private static void imprimir(Funcionario funcionario) {
-//        // TODO implementar a impressão do nome, salário e impostos (20%)
-//    }
-//
+    }
+
+    private static void imprimir(Funcionario funcionario) {
+        // TODO implementar a impressão do nome, salário e impostos (20%)
+
+        BigDecimal imposto = funcionario.getSalario().multiply(new BigDecimal("0.2"));
+        BigDecimal salarioLiquido = funcionario.getSalario().subtract(imposto);
+
+        System.out.printf("Nome: %s | Salário bruto: R$ %.2f | Imposto: R$ %.2f  | Líquido: R$ %.2f%n", funcionario.getNome(),
+                funcionario.getSalario().doubleValue(), imposto.doubleValue(), salarioLiquido.doubleValue());
+
+    }
+}
