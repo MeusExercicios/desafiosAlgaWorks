@@ -2,8 +2,8 @@ package desafioLambda;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
+import java.util.Comparator;
+import java.util.function.Predicate;
 
 public class Principal {
 
@@ -15,20 +15,17 @@ public class Principal {
         funcionarios.add(new Funcionario("Sebastião", new BigDecimal("12000"), false));
 
         // TODO remover funcionários inativos
-        Iterator<Funcionario> it = funcionarios.iterator();
+        //Predicate<Funcionario> trabalhadores = n -> n.isInativo(); FAZENDO COM LAMBDA
+        Predicate<Funcionario> trabalhadores = Funcionario :: isInativo;
+        funcionarios.removeIf(trabalhadores);
 
-        while (it.hasNext()) {
-            Funcionario funcionario = it.next();
 
-            if (funcionario.isInativo()) {
-                it.remove();
-            } else {
-                System.out.println("Funcionário ativo: " + funcionario.getNome());
-            }
-        }
         // TODO ordenar funcionários pelo valor do salário
+        //Comparator<Funcionario> trabalhadoresComparator = (p1,p2) ->p1.getSalario().compareTo(p2.getSalario());
+        //Comparator<Funcionario> trabalhadoresComparator = Comparator.comparing(Funcionario::getSalario);
+        //funcionarios.sort(trabalhadoresComparator);
+        funcionarios.sort(Comparator.comparing(Funcionario::getSalario));
 
-        Collections.sort(funcionarios);
 
 
         // TODO iterar e imprimir funcionários usando o método estático imprimir

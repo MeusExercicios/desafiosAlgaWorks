@@ -3,7 +3,7 @@ package desafioLambda;
 import java.math.BigDecimal;
 import java.util.Objects;
 
-public class Funcionario implements Comparable<Funcionario> {
+public class Funcionario {
 
     private final String nome;
     private final BigDecimal salario;
@@ -52,9 +52,4 @@ public class Funcionario implements Comparable<Funcionario> {
                 '}';
     }
 
-
-    @Override
-    public int compareTo(Funcionario o) {
-        return this.getSalario().compareTo(o.getSalario());
-    }
 }
