@@ -16,7 +16,7 @@ public class Principal {
         var cliente3 = new Cliente("Manoel Filho", endereco2);
         var cliente4 = new Cliente("Maria da Silva", endereco3);
 
-//        System.out.println(obterNomeCidadeResidenciaPropria(cliente1));
+ //       System.out.println(obterNomeCidadeResidenciaPropria(cliente1));
 //        System.out.println(obterNomeCidadeResidenciaPropria(cliente2));
 //        System.out.println(obterNomeCidadeResidenciaPropria(cliente3));
         System.out.println(obterNomeCidadeResidenciaPropria(cliente4));
@@ -27,7 +27,7 @@ public class Principal {
 
         return cliente.getEndereco() // Optional<Endereco>
                 .filter(Endereco::isResidenciaPropria) // só segue se for residência própria
-                .map(Endereco::getCidade)              // transforma em Optional<Cidade>
+                .flatMap(Endereco::getCidade)              // transforma em Optional<Cidade>
                 .map(Cidade::nome)                     // transforma em Optional<String> com o nome
                 .orElseThrow(() ->
                         new TipoDeResidenciaInvalidaException("Cliente sem residência própria ou cidade indefinida"));
